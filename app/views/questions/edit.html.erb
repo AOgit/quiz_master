@@ -1,0 +1,76 @@
+<div id="edit_box">
+	<h1>Edit the Question</h1>
+	<h3>Question: <%= @query.question %></h3>
+	<h3>Answer: <%= @answer.answer %></h3>
+	<% if @query.exam == 'id' %>
+		<p>This is an <b>Identification</b> type question. Please refer below to update the question and the answer. No blank entries will be accepted. Question should be <b>a minimum of 15 characters</b>.</p>
+		<p></p>
+		<form action="/questions/<%= @query.id %>" method="post">
+			<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+			<input type="hidden" name="_method" value="patch">
+			<label>Question:</label>
+			<p></p>
+			<textarea name='question' rows='5' cols='50'><%= @query.question %></textarea>
+			<p></p>
+			<label>Answer:</label>
+			<input type='text' name='answer' value="<%= @answer.answer %>">
+			<p></p>
+			<input type="hidden" name="type" value="id">
+			<input type="submit" value="Update Q & A">
+		</form>
+	<% end %>
+	<% if @query.exam == 'mc' %>
+		<p>This is a <b>Multiple Choice</b> type question. Please refer below to update the question and the answer. No blank entries will be accepted. Question should be <b>a minimum of 15 characters</b>.</p>
+		<p></p>
+		<form action="/questions/<%= @query.id %>" method="post">
+			<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+			<input type="hidden" name="_method" value="patch">
+			<label><u>Question:</u></label>
+			<p></p>
+			<textarea name='question' rows='5' cols='50'><%= @query.question %></textarea>
+			<p></p>
+			<label>Choice 1:</label>
+			<input type='text' name='choice_one' value="<%= @choices.first.choice %>">
+			<p></p>
+			<label>Choice 2:</label>
+			<input type='text' name='choice_two' value="<%= @choices.second.choice %>">
+			<p></p>
+			<label>Choice 3:</label>
+			<input type='text' name='choice_three' value="<%= @choices.third.choice %>">
+			<p></p>
+			<label>Choice 4: (<u>Answer</u>)</label>
+			<input type='text' name='answer' value="<%= @answer.answer %>">
+			<p></p>
+			<input type="hidden" name="type" value="mc">
+			<input type="submit" value="Update Q & A">
+		</form>
+	<% end %>
+	<% if @query.exam == 'tf' %>
+		<p>This is <b>True or False</b> type question. Please update whether True or False. Question should be <b>a minimum of 15 characters</b>.</p>
+		<p></p>
+		<form action="/questions/<%= @query.id %>" method="post">
+			<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+			<input type="hidden" name="_method" value="patch">
+			<label><u>Question:</u></label>
+			<p></p>
+			<textarea name='question' rows='5' cols='50'><%= @query.question %></textarea>
+			<p></p> 
+			<% if @answer.answer == "True" %>
+				<input type="radio" id="first" name="answer" value="True" checked="checked">
+				<label for="first">True</label>
+				<input type="radio" id="second" name="answer" value="False">
+				<label for="second">False</label>
+			<% else %>
+				<input type="radio" id="first" name="answer" value="True">
+				<label for="first">True</label>
+				<input type="radio" id="second" name="answer" value="False" checked="checked">
+				<label for="second">False</label>
+			<% end %>
+			<p></p>
+			<input type="hidden" name="type" value="tf">
+			<input type="submit" value="Update Q & A">
+			</form>
+	<% end %>
+	<p></p>
+	<a href="/">Back to Home Page</a>
+</div>

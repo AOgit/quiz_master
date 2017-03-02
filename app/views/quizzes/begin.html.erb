@@ -1,0 +1,83 @@
+<div id="guide_box_quiz">
+	<h3 style="text-align: center">Guidelines When Answering Questions</h3>
+	<ul>
+		<li>Try not to leave your answer blank. A blank answer is considered Incorrect.</li>
+		<p></p>
+		<li>When asked to type in a number (i.e. 9), you may type "nine". For two-digit numbers (i.e. 26), input with hyphen in between like "twenty-six".</li>
+		<p></p>
+		<li>Answers can either be a Proper or Common Noun.</li>
+		<p></p>
+		<li>Finish the quiz all the way till the end! :)</li>
+	</ul>
+</div>
+<div id="begin_box">
+	<% if !flash[:finish] %>
+		<h1>All the best in the quiz! :D</h1>
+	<% end %>
+	<% if flash[:finish] %>
+		<h1>Your Score: <%= flash[:score] %></h1>
+	<% end %>
+	<p><%= @question.question %></p>
+	<p></p>
+	<% if flash[:response] %>
+		<% if flash[:response] == "Correct!" %>
+	    	<p><b><%= flash[:response] %></b> The answer is <u><%= @answer.answer %></u></p>
+	    <% else %>
+	    	<p><b style="color: red"><%= flash[:response] %></b> The answer is <u><%= @answer.answer %></u></p>
+	    <% end %>
+	<% end %>
+	<p></p>
+	<% if @question.exam == 'id' && !flash[:response] %>
+		<form action='/quizzes/give_ans' method='get'>
+		  		<input type='text' name='answer'>
+		  		<input type="hidden" name='r_answer' value="<%= @answer.answer %>">
+		  		<p></p>
+		  		<input type='submit' value='Submit Answer'>
+		</form>
+	<% end %>
+	<% if @question.exam == 'mc' && !flash[:response] %>
+		<form action='/quizzes/give_ans' method='get'>
+			<input type="radio" id="first" name="answer" value="<%= @first_choice.choice %>">
+			<label for="first"><%= @first_choice.choice %></label>
+			<p></p> 
+			<input type="radio" id="second" name="answer" value="<%= @second_choice.choice %>">
+			<label for="second"><%= @second_choice.choice %></label>
+			<p></p>
+			<input type="radio" id="third" name="answer" value="<%= @third_choice.choice %>">
+			<label for="third"><%= @third_choice.choice %></label> 
+			<p></p>
+			<input type="radio" id="fourth" name="answer" value="<%= @fourth_choice.choice %>">
+			<label for="fourth"><%= @fourth_choice.choice %></label> 
+			<input type="hidden" name="r_answer" value="<%= @answer.answer %>">
+			<p></p>
+			<input type="submit" value="Check Answer">
+		</form>
+	<% end %>
+	<% if @question.exam == 'tf' && !flash[:response] %>
+		<form action='/quizzes/give_ans' method='get'>
+			<input type="radio" id="first" name="answer" value="True">
+			<label for="first">True</label>
+			<p></p> 
+			<input type="radio" id="second" name="answer" value="False">
+			<label for="second">False</label>
+			<input type="hidden" name="r_answer" value="<%= @answer.answer %>">
+			<p></p>
+			<input type="submit" value="Check Answer">
+		</form>
+	<% end %>
+	<p></p>
+	<% if flash[:response] && !flash[:finish] %>
+		<form action='/quizzes/get_next' method='get'>
+			<input type='submit' value='Next Question'>
+		</form>
+	<% end %>
+	<p></p>
+	<% if flash[:finish] %>
+	    <p><%= flash[:finish] %></p>
+		<form action='/quizzes/reset' method='get'>
+			<input type='submit' value='Reset Quiz'>
+		</form>
+		<p></p>
+		<p><a href="/">Back to Home Page</a> | <a href="/questions/ans_key">Review</a></p>
+	<% end %>
+</div>

@@ -1,0 +1,30 @@
+== Quiz Master Setup
+
+* Ruby version: 2.2.4
+* Rails version: 4.2.5.1
+* RSpec version: 3.5.2
+
+Setup Process:
+
+1. Git clone this repository
+
+2. Once downloaded, in your terminal, transfer into root directory of project folder. ($ cd quiz_master)
+
+3. Do 'bundle install' [for gems]
+
+4. Do 'rake db:schema:load' [for database]
+
+5. Do 'rake assets:precompile' [for styling]
+
+6. Do 'rails g rspec:install' [for RSpec]
+
+7. Afterwards, you can: 
+
+	* Type 'rails s' to activate server and go to localhost
+
+	* Type 'rails c' to access console.
+
+	* Type 'rspec spec' for unit testing. (31 tests total)
+
+
+Alternatively, you can play around with the app at https://kuizumasutaa.herokuapp.com/. 

@@ -1,0 +1,159 @@
+.main_header {
+	color:blue;
+	position:relative;
+	left:15%;
+}
+
+#main_bar {
+	margin-bottom: 25px;
+	position: relative;
+	left:15%;
+}
+
+#show_box {
+	text-align: center;
+	width: 55%;
+	height: 170px;
+	border: 1px solid #000000;
+	border-radius: 5px;
+	position: relative;
+	margin-left: 315px;
+}
+
+#edit_box {
+	width: 55%;
+	height: 575px;
+	border: 1px solid #000000;
+	border-radius: 5px;
+	position: relative;
+	margin-left: 315px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+#begin_box {
+	width: 55%;
+	height: 300px;
+	border: 1px solid #000000;
+	border-radius: 5px;
+	position: relative;
+	margin-left: 315px;
+	margin-top: 10px;
+	padding-left: 15px;
+}
+
+#new_box {
+	width: 55%;
+	height: 460px;
+	border: 1px solid #000000;
+	border-radius: 5px;
+	position: relative;
+	margin-left: 315px;
+	padding-left: 15px;
+	margin-top: 10px;
+}
+
+#identify_box {
+	width: 55%;
+	height: 325px;
+	border: 1px solid #000000;
+	border-radius: 5px;
+	position: relative;
+	margin-left: 315px;
+	padding-left: 15px;
+}
+
+#multiple_choice_box {
+	width: 55%;
+	height: 600px;
+	border: 1px solid #000000;
+	border-radius: 5px;
+	position: relative;
+	margin-left: 315px;
+	padding-left: 15px;
+}
+
+#true_false_box {
+	width: 55%;
+	height: 325px;
+	border: 1px solid #000000;
+	border-radius: 5px;
+	position: relative;
+	margin-left: 315px;
+	padding-left: 15px;
+}
+
+#guide_box_new {
+	width: 55%;
+	height: 240px;
+	border: 1px solid #000000;
+	position: relative;
+	border-radius: 5px;
+	margin-left: 315px;
+	padding-left:15px;
+}
+
+#guide_box_quiz {
+	width: 55%;
+	height: 220px;
+	border: 1px solid #000000;
+	border-radius: 5px;
+	position: relative;
+	margin-left: 315px;
+	padding-left: 15px;
+}
+
+.take_the_quiz {
+	margin-left:15px;
+}
+
+.answer_key {
+	margin-left:15px;
+}
+
+.main_table {
+	width: 55%;
+	height: 500px;
+	overflow: scroll;
+	border: 1px solid #000000;
+	border-radius: 5px;
+	position: relative;
+	left: 15%;
+}
+
+.main_rows {
+	text-align: center;
+}
+
+.button {
+	padding:20px;
+	font-weight: bold;
+	font-size: 15px;
+	border-radius: 5px;
+}
+
+#ans_key_box {
+	width: 40%;
+	height: 500px;
+	border: 1px solid #000000;
+	border-radius: 5px;
+	padding-left: 15px;
+	position: relative;
+	left: 15%;
+}
+
+.ans_key_quest {
+	display:inline-block;
+}
+
+.ans_key_ans {
+	display:inline-block;
+	text-align:center;
+	position:relative;
+}
+
+.ans_header {
+	position:relative;
+	left: 15%;
+}
+

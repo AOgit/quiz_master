@@ -1,0 +1,22 @@
+<div id="identify_box">
+	<h1>What is the Answer?</h1>
+	<p></p>
+	<% if flash[:create_answer_error] %>
+	  <% flash[:create_answer_error].each do |e| %>
+	    <p><%= e %></p>
+	  <% end %>
+	<% end %>
+	<p></p>
+	<h3>You have chosen Identification type. Please provide the answer to the question. Do not leave the answer blank.</h3>
+	<p></p>
+	<p><b>Question:</b>  <%= @recent_query.question %></p>
+	<form action="/quizzes/post_answer_id" method="post">
+		<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+		<p></p>
+		<h3>Answer</h3>
+		<p></p>
+		<input type="text" name="answer_id">
+		<p></p>
+		<input type="submit" value="Submit Answer">
+	</form>
+</div>

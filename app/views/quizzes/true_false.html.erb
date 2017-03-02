@@ -1,0 +1,22 @@
+<div id="true_false_box">
+	<h1>What is the Answer?</h1>
+	<p></p>
+	<% if flash[:tf_answer_error] %>
+	  <p><%= flash[:tf_answer_error] %></p>
+	<% end %>
+	<p></p>
+	<h3>You have chosen True or False type. Please provide the answer, either TRUE or FALSE. Do not leave blank.</h3>
+	<p></p>
+	<p><b>Question:</b>  <%= @recent_query.question %></p>
+	<form action="/quizzes/post_answer_tf" method="post">
+		<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+		<p></p> 
+		<input type="radio" id="first" name="choice" value="True">
+		<label for="first">True</label> 
+		<p></p>
+		<input type="radio" id="second" name="choice" value="False">
+		<label for="second">False</label> 
+		<p></p>
+		<input type="submit" value="Submit Answer">
+	</form>
+</div>

@@ -1,0 +1,35 @@
+<h1 class="ans_header">Reviewer</h1>
+<div id="ans_key_box">
+	<table class="ans_key_quest">
+		<thead>
+			<tr>
+				<th>Questions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @questions.each do |q| %>
+			<tr>
+				<td><%= q.question %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+	<table class="ans_key_ans">
+		<thead>
+			<tr>
+				<th>Answers</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @answers.each do |a| %>
+			<tr>
+				<td><%= a.answer %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+<p></p>
+<div class="ans_header">
+	<a href="/">Back to Home Page</a>
+</div>

@@ -1,0 +1,32 @@
+<div id="multiple_choice_box">
+	<h1>What is the Answer?</h1>
+	<p></p>
+	<% if flash[:choice_answer_error] %>
+	  <p><%= flash[:choice_answer_error] %></p>
+	<% end %>
+	<p></p>
+	<h3>You have chosen Multiple Choice type. Please provide four choices: three choices being wrong and one choice the correct answer. Do not leave any entry blank.</h3>
+	<p></p>
+	<p><b>Question:</b>  <%= @recent_query.question %></p>
+	<form action="/quizzes/post_answer_mc" method="post">
+		<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+		<p></p>
+		<h3>Choice #1</h3>
+		<p></p>
+		<input type="text" name="choice_one">
+		<p></p>
+		<h3>Choice #2</h3>
+		<p></p>
+		<input type="text" name="choice_two">
+		<p></p>
+		<h3>Choice #3</h3>
+		<p></p>
+		<input type="text" name="choice_three">
+		<p></p>
+		<h3>Answer</h3>
+		<p></p>
+		<input type="text" name="answer_mc">
+		<p></p>
+		<input type="submit" value="Submit Answer">
+	</form>
+</div>

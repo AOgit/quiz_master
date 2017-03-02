@@ -1,0 +1,43 @@
+<div id="guide_box_new">
+	<h3 style="text-align: center">Guidelines</b> When Making Queries</h3>
+	<ul>
+		<li>Do not leave question and exam type blank!</li>
+		<p></p>
+		<li>Question should be <b>a minimum of 15 characters</b>.</li>
+		<p></p>
+		<li>There are three types of tests: Identification, Multiple Choice, and True or False.</li>
+		<p></p>
+		<li>If declaring a question for Identification or Multiple Choice type, please end with a (?) question mark sign.</li>
+		<p></p>
+		<li>For a True or False type, the question may be a statement.</li>
+	</ul>
+</div>
+<div id="new_box">
+	<h1>What is the Question?</h1>
+	<p></p>
+	<% if flash[:create_query_errors] %>
+	  <% flash[:create_query_errors].each do |e| %>
+	    <p><%= e %></p>
+	  <% end %>
+	<% end %>
+	<p></p>
+	<form action="/quizzes/question" method="post">
+		<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+		<h3>Question</h3>
+		<p></p>
+		<textarea name="question" cols="50" rows="5"></textarea>
+		<p></p>
+		<h3>Exam (Type)</h3>
+		<p></p>
+		<select name="q_type">
+			<option value="">-- CHOOSE ONE --</option>
+			<option value="id">Identification</option>
+			<option value="mc">Multiple Choice</option>
+			<option value="tf">True or False</option>
+		</select>
+		<p></p>
+		<input type="submit" value="Create Question">
+	</form>
+	<p></p>
+	<a href="/">Back to Home Page</a>
+</div>
